@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            <h3 class="box-title" style="text-align: center;">Quản Lý Vé</h3>
+            <button class="btn btn-success" style="color: black;" [routerLink]="['//add-ticket',id]">Thêm Vé</button>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">Người đặt vé</th>
+                            <th class="border-top-0">Số Điện Thoại</th>
+                            <th class="border-top-0">Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let ticket of list_ticket">
+                        <tr>
+                            <td>{{ticket.fullName}}</td>
+                            <td>{{ticket.phone}}</td>
+                            <td><button class="btn btn-danger" (click)="delete(ticket._id)">Xóa</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

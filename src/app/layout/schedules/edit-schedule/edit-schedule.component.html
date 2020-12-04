@@ -1,0 +1,22 @@
+<div>
+    <h2 style="text-align: center;">Thêm Chuyến</h2>
+    <form [formGroup]="editScheduleForm" (ngSubmit)="onSubmit()">
+        <label for="username">Chuyến Đi: </label>
+        <span>
+            <select name="" id="" formControlName="busID">
+                <option *ngFor = "let bus of list_bus" value="{{bus._id}}">{{bus.departureTime}} - {{bus.routeID.startLocation}} => {{bus.routeID.stopLocation}}</option>
+            </select>
+            
+      </span>
+
+        <label for="email">Ngày Đi: </label>
+        <span>
+        <input type="date" id="email" formControlName="date" placeholder="H">
+      </span>
+        <div class="center">
+            <button class="btn btn-delete" type="submit" routerLink="//list-schedule">Cancel</button>
+            <button class="btn btn-add" type="submit">Submit</button>
+        </div>
+    </form>
+
+</div>

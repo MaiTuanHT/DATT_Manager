@@ -1,0 +1,28 @@
+<div>
+    <h2 style="text-align: center;">Thêm Nhân Viên</h2>
+    <form [formGroup]="creatForm" (ngSubmit)="onSubmit()">
+        <label for="username">Họ Tên: </label>
+        <span>
+        <input type="text" id="uname" formControlName="fullName" placeholder="Your Name..">
+      </span>
+        <label for="email">Email: </label>
+        <span>
+        <input type="text" id="email" formControlName="email" placeholder="Your Email..">
+      </span>
+
+        <label for="pword">Mật Khẩu: </label>
+        <span>
+        <input type="password" id="pword" formControlName="password" placeholder="Your Password..">
+      </span>
+
+        <label for="nbphone">Số Điện Thoại: </label>
+        <span>
+        <input type="text" id="nbphone" formControlName="phoneNumber" placeholder="Your Number Phone..">
+      </span>
+
+        <div class="center">
+            <button class="btn btn-delete" type="submit" routerLink="//list-staff">Cancel</button>
+            <button class="btn btn-add" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

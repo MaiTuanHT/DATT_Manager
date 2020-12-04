@@ -1,0 +1,24 @@
+<div>
+    <h2 style="text-align: center;">Thêm Vé</h2>
+    <form [formGroup]="creatForm" (ngSubmit)="onSubmit()">
+        <label for="username">Họ Tên: </label>
+        <span>
+        <input type="text" id="uname" formControlName="fullName" placeholder="Tên của bạn">
+      </span>
+
+        <label for="pword">Số Điện Thoại: </label>
+        <span>
+        <input type="text" id="pword" formControlName="phoneNumber" placeholder="Số điện thoại của bạn">
+      </span>
+
+        <label for="nbphone">Số Ghế: </label>
+        <span>
+        <input type="number" id="nbphone" min="1" formControlName="seat" placeholder="Số ghế bạn muốn">
+      </span>
+
+        <div class="center">
+            <button class="btn btn-delete" type="submit" routerLink="//list-schedule">Cancel</button>
+            <button class="btn btn-add" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

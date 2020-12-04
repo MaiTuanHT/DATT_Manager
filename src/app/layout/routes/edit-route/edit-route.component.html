@@ -1,0 +1,39 @@
+<div>
+    <h2 style="text-align: center;">Sửa Tuyến</h2>
+    <form [formGroup]="editRouteForm" (ngSubmit)="onSubmit()">
+        <label for="username">Điểm Đi: </label>
+        <span>
+        <!-- <input type="text" id="uname" formControlName="name" placeholder="Điểm Đi.."> -->
+        <select name="" id="" formControlName="startLocation">
+            <!-- <option value="Điểm Đi">Điểm Đi</option> -->
+            <option value="Đà Nẵng">Đà Nẵng</option>
+            <option value="Nghệ An">Nghệ An</option>
+            <option value="Hà Tĩnh">Hà Tĩnh</option>
+            <option value="Sài Gòn">Sài Gòn</option>
+            <option value="Thanh Hóa">Thanh Hóa</option>
+            <option value="Hà Nội">Hà Nội</option>
+        </select>
+      </span>
+
+        <label for="email">Điểm Đến: </label>
+        <span>
+            <select name="" id="" formControlName="stopLocation">
+                <!-- <option value="Điểm Đến">Điểm Đến</option> -->
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Nghệ An">Nghệ An</option>
+                <option value="Hà Tĩnh">Hà Tĩnh</option>
+                <option value="Sài Gòn">Sài Gòn</option>
+                <option value="Thanh Hóa">Thanh Hóa</option>
+                <option value="Hà Nội">Hà Nội</option>
+            </select>
+        <!-- <input type="text" id="email" formControlName="email" placeholder="Điểm Đến.."> -->
+      </span>
+        <div class="center">
+            <button class="btn btn-delete" type="submit" routerLink="//list-route">Cancel</button>
+            <button class="btn btn-add" type="submit">Submit</button>
+
+        </div>
+
+    </form>
+
+</div>

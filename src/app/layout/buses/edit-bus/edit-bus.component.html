@@ -1,0 +1,27 @@
+<div>
+    <h2 style="text-align: center;">Sửa Chuyến</h2>
+    <form [formGroup]="editBusForm" (ngSubmit)="onSubmit()">
+        <label for="username">Tuyến Đi: </label>
+        <span>
+            <select name="" id="" formControlName="routeID">
+                <option *ngFor = "let route of list_route" value="{{route._id}}">{{route.startLocation}} - {{route.stopLocation}}</option>
+            </select>
+      </span>
+
+        <label for="email">Giờ Xuất Phát: </label>
+        <span>
+        <input type="time" id="email" formControlName="departureTime" placeholder="H">
+      </span>
+
+        <label for="pword">Số Chỗ: </label>
+        <span>
+        <input type="number" id="pword" min="5" formControlName="seat" placeholder="Number">
+      </span>
+
+        <div class="center">
+            <button class="btn btn-delete" type="submit" routerLink="//list-bus">Cancel</button>
+            <button class="btn btn-add" type="submit">Submit</button>
+        </div>
+    </form>
+
+</div>
