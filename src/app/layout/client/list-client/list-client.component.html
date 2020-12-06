@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            <h3 class="box-title" style="text-align: center;">Quản Lý Khách Hàng</h3>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <!-- <th class="border-top-0">#</th> -->
+                            <th class="border-top-0">Tên Khách Hàng</th>
+                            <th class="border-top-0">Email</th>
+                            <th class="border-top-0">Số Điện Thoại</th>
+                            <th class="border-top-0">Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let client of clients">
+                        <tr *ngIf="client.fullName != 'ADMIN'">
+                            <td>{{client.fullName}}</td>
+                            <td>{{client.email}}</td>
+                            <td>{{client.phoneNumber}}</td>
+                            <td><button class="btn btn-danger" (click)="delete(client._id)">Xóa</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

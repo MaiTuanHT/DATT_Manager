@@ -48,7 +48,7 @@ export class AddBusComponent implements OnInit {
           alert("Thêm Chuyến Thành Công")
           this.router.navigateByUrl('//list-bus')
         } , error=>{
-          alert(error.error.message)
+          alert(error.error.name)
         })
     }
   }

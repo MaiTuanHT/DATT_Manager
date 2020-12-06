@@ -25,4 +25,15 @@ export class ListScheduleComponent implements OnInit {
     })
   }
 
+  async delete(id){
+
+    if(confirm("Bạn có chắc chắn muốn xóa không")){
+      await this.listScheduleService.deleteSchedule(id).subscribe(res=>{
+        this.ngOnInit()
+      }, error=>{
+        alert(error.error.name)
+      })
+    }
+    }
+
 }

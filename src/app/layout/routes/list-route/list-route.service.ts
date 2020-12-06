@@ -12,4 +12,8 @@ export class ListRouteService {
     return this.httpClient.get('http://localhost:3000/routes/agency');
   }
 
-}
+  public deleteRoute(id){
+    return this.httpClient.delete(`http://localhost:3000/routes/${id}`);
+  }
+
+} 

@@ -18,12 +18,11 @@
                     </thead>
                     <tbody *ngFor="let bus of list_bus">
                         <tr>
-                            <!-- <td>1</td> -->
                             <td>{{bus.routeID.startLocation}} - {{bus.routeID.stopLocation}}</td>
-                            <td>20</td>
+                            <td>{{bus.seat}}</td>
                             <td>{{bus.departureTime }}</td>
                             <td><button class="btn btn-primary" [routerLink]="['//edit-bus',bus._id]">Sửa</button></td>
-                            <td><button class="btn btn-danger">Xóa</button></td>
+                            <td><button class="btn btn-danger" (click)="delete(bus._id)">Xóa</button></td>
                         </tr>
                     </tbody>
                 </table>

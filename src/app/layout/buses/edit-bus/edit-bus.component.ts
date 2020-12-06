@@ -36,8 +36,8 @@ export class EditBusComponent implements OnInit {
     this.id = this.activeRoute.snapshot.paramMap.get('id');
   }
 
-  onSubmit(){
-    this.editBusService.BusUpdate(this.editBusForm.value.routeID , 
+ async onSubmit(){
+  await  this.editBusService.BusUpdate(this.editBusForm.value.routeID , 
       this.editBusForm.value.departureTime,
       this.editBusForm.value.seat,
       this.id).subscribe(data=>{

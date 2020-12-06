@@ -1,18 +1,29 @@
 <div>
-    <h2 style="text-align: center;">Thêm Chuyến</h2>
+    <h2 style="text-align: center;">Thêm Lịch Trình</h2>
     <form [formGroup]="addScheduleForm" (ngSubmit)="onSubmit()">
         <label for="username">Chuyến Đi: </label>
         <span>
             <select name="" id="" formControlName="busID">
                 <option *ngFor = "let bus of list_bus" value="{{bus._id}}">{{bus.departureTime}} - {{bus.routeID.startLocation}} => {{bus.routeID.stopLocation}}</option>
             </select>
-            
+      </span>
+
+        <label for="pword">Giá Vé: </label>
+        <span>
+        <input type="number" id="pword" min="10000" formControlName="price" placeholder="Number">
       </span>
 
         <label for="email">Ngày Đi: </label>
         <span>
         <input type="date" id="email" formControlName="date" placeholder="H">
+        </span>
+        <label for="username">Xe Chạy: </label>
+        <span>
+            <select name="" id="" formControlName="vehicleID">
+                <option *ngFor = "let vehicle of vehicles" value="{{vehicle._id}}">{{vehicle.numberSeat}} chỗ - Biển Số: {{vehicle.licensePlate}}</option>
+            </select>
       </span>
+
         <div class="center">
             <button class="btn btn-delete" type="submit" routerLink="//list-schedule">Cancel</button>
             <button class="btn btn-add" type="submit">Submit</button>

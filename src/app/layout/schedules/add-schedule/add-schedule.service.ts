@@ -12,11 +12,13 @@ export class AddScheduleService {
   constructor(private httpClient : HttpClient) { }
 
 
-  public Schedule(busID, date){
+  public Schedule(busID, date,price,vehicleID){
     // console.log(fullName)
     return this.httpClient.post('http://localhost:3000/schedules/',{
       busID,
       date,
+      price,
+      vehicleID
     },httpOptions)
   }
 

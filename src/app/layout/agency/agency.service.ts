@@ -11,4 +11,9 @@ export class AgencyService {
   public GetListAgency(){
     return this.httpClient.get('http://localhost:3000/agencys/admin');
   }
+
+  public deleteAgency(id){
+    return this.httpClient.delete(`http://localhost:3000/agencys/${id}`);
+  }
+
 }

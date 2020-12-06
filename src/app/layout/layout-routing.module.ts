@@ -18,10 +18,15 @@ import { from } from 'rxjs';
 import { ListAgencyComponent } from './agency/list-agency/list-agency.component';
 import { ListTicketComponent } from './ticket/list-ticket/list-ticket.component';
 import { AddTicketComponent } from './ticket/add-ticket/add-ticket.component';
+import { ListVehicleComponent } from './vehicle/list-vehicle/list-vehicle.component';
+import { AddVehicleComponent } from './vehicle/add-vehicle/add-vehicle.component';
+import { EditVehicleComponent } from './vehicle/edit-vehicle/edit-vehicle.component';
+import { ListClientComponent } from './client/list-client/list-client.component';
 
 const routes: Routes = [{ path: '', component: LayoutComponent ,
 children:[
   { path:"list-agency", component:ListAgencyComponent},
+  { path:"list-client", component:ListClientComponent},
    { path:"list-staff", component:ListStaffComponent},
    { path:"add-staff", component:AddStaffComponent},
    { path:"list-route", component:ListRouteComponent},
@@ -34,9 +39,11 @@ children:[
    { path:"add-schedule", component:AddScheduleComponent},
    { path:"edit-schedule/:id", component:EditScheduleComponent},
    { path:"list-ticket/:id", component:ListTicketComponent},
-  //  { path:"list-ticket", component:ListTicketComponent},
    { path:"add-ticket/:id", component:AddTicketComponent},
    { path:"", component:SinginComponent},
+   { path:"list-vehicle", component:ListVehicleComponent},
+   { path:"add-vehicle", component:AddVehicleComponent},
+   { path:"edit-vehicle/:id", component:EditVehicleComponent},
     
 ]}];
 

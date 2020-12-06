@@ -14,11 +14,13 @@ export class EditScheduleService {
   constructor(private httpClient : HttpClient) { }
 
 
-  public updateSchedule(busID, date , id){
+  public updateSchedule(busID, date, price,vehicleID, id){
     // console.log(fullName)
     return this.httpClient.put(`http://localhost:3000/schedules/${id}`,{
       busID,
       date,
+      price,
+      vehicleID
     },httpOptions)
   }
 }

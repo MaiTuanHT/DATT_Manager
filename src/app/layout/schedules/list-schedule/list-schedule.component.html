@@ -11,8 +11,10 @@
                             <th class="border-top-0">Tuyến Đi</th>
                             <th class="border-top-0">Số Ghế</th>
                             <th class="border-top-0">Đã Đặt</th>
+                            <th class="border-top-0">Giá Vé</th>
                             <th class="border-top-0">Ngày Khởi Hành</th>
                             <th class="border-top-0">Giờ Khởi Hành</th>
+                            <th class="border-top-0">Xe Chạy</th>
                             <th class="border-top-0">Quản lý vé</th>
                             <th class="border-top-0">Sửa</th>
                             <!-- <th class="border-top-0">Sửa</th> -->
@@ -25,11 +27,15 @@
                             <td>{{schedule.routeID.startLocation}} - {{schedule.routeID.stopLocation}}</td>
                             <td>{{schedule.busID.seat}}</td>
                             <td>{{schedule.booked}}</td>
+                            <td>{{schedule.price}}</td>
                             <td>{{schedule.date}}</td>
                             <td>{{schedule.busID.departureTime}}</td>
+                            <td *ngIf="!(schedule.vehicleID)">Chưa Xếp</td>
+                            <td *ngIf="schedule.vehicleID">{{schedule.vehicleID.numberSeat}} chỗ</td>
+
                             <td><button class="btn btn-success" [routerLink]="['//list-ticket',schedule._id]">Quản lý</button></td>
                             <td><button class="btn btn-primary" [routerLink]="['//edit-schedule',schedule._id]">Sửa</button></td>
-                            <td><button class="btn btn-danger">Xóa</button></td>
+                            <td><button class="btn btn-danger" (click)="delete(schedule._id)">Xóa</button></td>
                         </tr>
                     </tbody>
                 </table>

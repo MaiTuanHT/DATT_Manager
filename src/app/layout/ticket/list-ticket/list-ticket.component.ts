@@ -26,13 +26,15 @@ export class ListTicketComponent implements OnInit {
     )
   }
 
-  delete(id){
-    this.ticketService.deleteTicket(id).subscribe(res=>{
-      alert("Xoá Thành Công")
-      window.location.reload()
-      // this.router.navigateByUrl(`//list-ticket/${this.id}`)
-    } , error=>{
-      alert(error.error.name)
-    })
-  }
+  async delete(id){
+
+    if(confirm("Bạn có chắc chắn muốn xóa không")){
+      await this.ticketService.deleteTicket(id).subscribe(res=>{
+        this.ngOnInit()
+      }, error=>{
+        alert(error.error.name)
+      })
+    }
+    }
+
 }

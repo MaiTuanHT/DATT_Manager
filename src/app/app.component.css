@@ -1,6 +1,14 @@
     .taikhoan {
         margin-right: 60px;
     }
+    
+    li {
+        margin-left: 20px;
+    }
+    
+    .admin {
+        margin-right: 800px;
+    }
     /* .dropbtn {
         background-color: #4CAF50;
         color: white;
@@ -40,5 +48,5 @@
     }
     
     .dropdown:hover .dropbtn {
-        background-color: #3e8e41;
+        color: green;
     }

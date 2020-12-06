@@ -11,4 +11,9 @@ export class ListBusService {
   public GetListBus(){
     return this.httpClient.get('http://localhost:3000/buses/agency');
   }
+
+  public deleteBus(id){
+    return this.httpClient.delete(`http://localhost:3000/buses/${id}`);
+  }
+
 }

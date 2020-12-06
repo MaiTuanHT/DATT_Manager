@@ -7,6 +7,8 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th class="border-top-0">Tuyến Đi</th>
+                            <th class="border-top-0">Thời Gian Khởi Hành</th>
                             <th class="border-top-0">Người đặt vé</th>
                             <th class="border-top-0">Số Điện Thoại</th>
                             <th class="border-top-0">Xóa</th>
@@ -14,6 +16,8 @@
                     </thead>
                     <tbody *ngFor="let ticket of list_ticket">
                         <tr>
+                            <td>{{ticket.scheduleID.routeID.startLocation}} - {{ticket.scheduleID.routeID.stopLocation}}</td>
+                            <td>{{ticket.scheduleID.date}} - {{ticket.scheduleID.busID.departureTime}}</td>
                             <td>{{ticket.fullName}}</td>
                             <td>{{ticket.phone}}</td>
                             <td><button class="btn btn-danger" (click)="delete(ticket._id)">Xóa</button></td>

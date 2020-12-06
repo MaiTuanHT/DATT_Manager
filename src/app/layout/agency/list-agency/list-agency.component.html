@@ -23,8 +23,8 @@
                             <td>{{agency.phoneNumber}}</td>
                             <td>{{agency.utilities}}</td>
                             <td>{{agency.policy}}</td>
-                            <td>{{agency.scoreRate}}* - {{agency.totalRate}} đánh giá </td>
-                            <td><button class="btn btn-danger">Xóa</button></td>
+                            <td>{{agency.scoreRate}} <i class="fa fa-star" style="color: yellow;" aria-hidden="true"></i> - {{agency.totalRate}} đánh giá </td>
+                            <td><button class="btn btn-danger" (click)="delete(agency._id)">Xóa</button></td>
                         </tr>
                     </tbody>
                 </table>

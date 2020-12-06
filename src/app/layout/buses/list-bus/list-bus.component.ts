@@ -24,4 +24,16 @@ export class ListBusComponent implements OnInit {
       }
     })
   }
+
+  async delete(id){
+
+    if(confirm("Bạn có chắc chắn muốn xóa không")){
+      await this.listBusService.deleteBus(id).subscribe(res=>{
+        this.ngOnInit()
+      }, error=>{
+        alert(error.error.name)
+      })
+    }
+    }
+
 }

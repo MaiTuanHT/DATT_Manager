@@ -25,4 +25,15 @@ export class ListRouteComponent implements OnInit {
     })
   }
 
+  async delete(id){
+
+    if(confirm("Bạn có chắc chắn muốn xóa không")){
+      await this.listRouteService.deleteRoute(id).subscribe(res=>{
+        this.ngOnInit()
+      }, error=>{
+        alert(error.error.name)
+      })
+    }
+    }
+
 }

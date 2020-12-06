@@ -20,6 +20,10 @@ import { ListAgencyComponent } from './agency/list-agency/list-agency.component'
 import { DetailAgencyComponent } from './agency/detail-agency/detail-agency.component';
 import { ListTicketComponent } from './ticket/list-ticket/list-ticket.component';
 import { AddTicketComponent } from './ticket/add-ticket/add-ticket.component';
+import { ListVehicleComponent } from './vehicle/list-vehicle/list-vehicle.component';
+import { AddVehicleComponent } from './vehicle/add-vehicle/add-vehicle.component';
+import { EditVehicleComponent } from './vehicle/edit-vehicle/edit-vehicle.component';
+import { ListClientComponent } from './client/list-client/list-client.component';
 
 
 
@@ -29,7 +33,8 @@ import { AddTicketComponent } from './ticket/add-ticket/add-ticket.component';
     ListScheduleComponent, AddScheduleComponent, EditScheduleComponent, 
     EditRouteComponent, AddRouteComponent, ListRouteComponent, 
     AddBusComponent, ListBusComponent, EditBusComponent, SinginComponent,
-    ListAgencyComponent, DetailAgencyComponent, ListTicketComponent, AddTicketComponent],
+    ListAgencyComponent, DetailAgencyComponent, ListTicketComponent, AddTicketComponent, 
+    ListVehicleComponent, AddVehicleComponent, EditVehicleComponent, ListClientComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,

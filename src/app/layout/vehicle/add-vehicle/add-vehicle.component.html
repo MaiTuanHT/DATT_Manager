@@ -1,0 +1,21 @@
+<div>
+    <h2 style="text-align: center;">Thêm Xe</h2>
+    <form [formGroup]="addVehicleForm" (ngSubmit)="onSubmit()">
+
+        <label for="email">Biển Số Xe: </label>
+        <span>
+        <input type="text" id="email" formControlName="licensePlate" placeholder="xxx">
+      </span>
+
+        <label for="pword">Số Chỗ: </label>
+        <span>
+        <input type="number" id="pword" min="5" formControlName="numberSeat" placeholder="Number">
+      </span>
+
+        <div class="center">
+            <button class="btn btn-delete" type="submit" routerLink="//list-vehicle">Cancel</button>
+            <button class="btn btn-add" type="submit">Submit</button>
+        </div>
+    </form>
+
+</div>

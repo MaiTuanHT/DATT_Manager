@@ -18,11 +18,10 @@
                     </thead>
                     <tbody *ngFor="let staff of list_staff">
                         <tr>
-                            <!-- <td>1</td> -->
-                            <td>{{staff.userID.fullName}}</td>
-                            <td>{{staff.userID.email}}</td>
-                            <td>{{staff.userID.phoneNumber}}</td>
-                            <td><button class="btn btn-danger">Xóa</button></td>
+                            <td>{{staff.fullName}}</td>
+                            <td>{{staff.email}}</td>
+                            <td>{{staff.phoneNumber}}</td>
+                            <td><button class="btn btn-danger" (click)="delete(staff._id)">Xóa</button></td>
                         </tr>
                     </tbody>
                 </table>

@@ -11,4 +11,9 @@ export class ListStaffService {
   public GetListStaff(){
     return this.httpClient.get('http://localhost:3000/users/list-staff');
   }
+
+  public deleteStaff(id){
+    console.log("user id : " , id)
+    return this.httpClient.delete(`http://localhost:3000/users/${id}`);
+  }
 }

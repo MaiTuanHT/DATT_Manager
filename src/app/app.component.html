@@ -15,33 +15,30 @@
             </div>
 
             <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                <!-- <ul class="navbar-nav d-none d-md-block d-lg-none">
-                    <li class="nav-item">
-                        <a class="nav-toggler nav-link waves-effect waves-light text-white"><i class="ti-menu ti-close"></i></a>
-                    </li>
-                </ul> -->
 
                 <ul class="navbar-nav ml-auto d-flex align-items-center">
-                    <!-- <h1 class="taikhoan">Account</h1> -->
 
-                    <div class="dropdown taikhoan">
-                        <button class="dropbtn btn btn-primary">Tài Khoản</button>
+                    <div class="dropdown admin">
+                        <h5 class="dropbtn">Quản Lý Admin</h5>
                         <div class="dropdown-content">
-                            <a href="#" routerLink="">Đăng Nhập</a>
-                            <a href="#">Đăng Xuất</a>
-                            <a href="#">Đổi Mật Khẩu</a>
+                            <a routerLink="list-client">Quản Lý Khách</a>
+                            <a routerLink="list-agency">Quản Lý Nhà xe</a>
                         </div>
                     </div>
-                    <!-- <li>
-                        <a class="profile-pic" href="#">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span class="text-white font-medium">Steave</span>
-                        </a>
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                    </li> -->
+
+                    <div class="dropdown taikhoan">
+                        <h5 class="dropbtn">Tài Khoản</h5>
+                        <div class="dropdown-content">
+                            <a routerLink="">Đăng Nhập</a>
+                            <a (click)="singOut()">Đăng Xuất</a>
+                            <a>Đổi Mật Khẩu</a>
+                        </div>
+                    </div>
+
+
+
                 </ul>
 
-                <!-- <h1>Account</h1> -->
             </div>
         </nav>
     </header>
@@ -54,30 +51,25 @@
                 <ul id="sidebarnav">
 
                     <li class="sidebar-item">
-                        <!-- <button class="btn btn-primary btn-slidebar">Quản lý Nhân Viên</button> -->
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list-agency" aria-expanded="false">
-                            <i class="fa fa-user" aria-hidden="true"></i><span class="hide-menu">Quản lý Nhà Xe</span></a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <!-- <button class="btn btn-primary btn-slidebar">Quản lý Nhân Viên</button> -->
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list-staff" aria-expanded="false">
                             <i class="fa fa-user" aria-hidden="true"></i><span class="hide-menu">Quản lý Nhân Viên</span></a>
                     </li>
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list-route" aria-expanded="false"><i class="fa fa-table"
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list-route" aria-expanded="false"><i class="fa fa-road"
                                   aria-hidden="true"></i><span class="hide-menu">Quản Lý Tuyến Xe</span></a></li>
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list-bus" aria-expanded="false"><i class="fa fa-font"
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list-bus" aria-expanded="false"><i class="fa fa-bus"
                                   aria-hidden="true"></i><span class="hide-menu">Quản Lý Chuyến</span></a></li>
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list-schedule" aria-expanded="false"><i class="fa fa-globe"
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list-schedule" aria-expanded="false"><i class="fa fa-calendar"
                                   aria-hidden="true"></i><span class="hide-menu">Quản Lý Lịch Trình</span></a></li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="list-vehicle" aria-expanded="false">
+                            <i class="fa fa-car" aria-hidden="true"></i><span class="hide-menu">Quản lý Xe</span></a>
+                    </li>
+
                 </ul>
-
             </nav>
-
         </div>
-
     </aside>
-
     <div class="page-wrapper">
 
         <div class="container-fluid">

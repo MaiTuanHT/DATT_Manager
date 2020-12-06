@@ -19,13 +19,21 @@ export class ListStaffComponent implements OnInit {
         this.list_staff = data ;
         console.log(data)
     } , error=>{
-      alert(error.error.message)
-      if(error.error.message == undefined){
+      alert(error.error.name)
         this.router.navigateByUrl('')
-      }
     }
     )
-    
+  }
+
+async delete(id){
+
+  if(confirm("Bạn có chắc chắn muốn xóa không")){
+    await this.listStaffService.deleteStaff(id).subscribe(res=>{
+      this.ngOnInit()
+    }, error=>{
+      alert(error.error.name)
+    })
+  }
   }
 
 }

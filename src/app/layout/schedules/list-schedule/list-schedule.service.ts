@@ -12,4 +12,8 @@ export class ListScheduleService {
     return this.httpClient.get('http://localhost:3000/schedules/agency');
   }
 
+  public deleteSchedule(id){
+    return this.httpClient.delete(`http://localhost:3000/schedules/${id}`)
+  }
+
 }
