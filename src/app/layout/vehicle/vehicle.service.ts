@@ -17,6 +17,9 @@ export class VehicleService {
     return this.httpClient.get('http://localhost:3000/vehicles/');
   }
 
+  public GetVehicle(id){
+    return this.httpClient.get(`http://localhost:3000/vehicles/${id}`);
+  }
 
   public Vehicle(licensePlate, numberSeat){
     return this.httpClient.post('http://localhost:3000/vehicles/',{

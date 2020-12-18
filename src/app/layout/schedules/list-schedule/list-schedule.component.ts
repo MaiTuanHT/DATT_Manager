@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {ListScheduleService} from './list-schedule.service'
+import {ScheduleService} from '../schedule.service'
 
 @Component({
   selector: 'app-list-schedule',
@@ -11,10 +11,9 @@ export class ListScheduleComponent implements OnInit {
 
   list_schedule: any
 
-  constructor(private listScheduleService : ListScheduleService , private router: Router) { }
-
+  constructor(private scheduleService : ScheduleService , private router: Router) { }
   async ngOnInit() {
-    await this.listScheduleService.GetListSchedule().subscribe(data=>{
+    await this.scheduleService.GetListSchedule().subscribe(data=>{
       this.list_schedule = data
       console.log(this.list_schedule)
     } , error =>{
@@ -28,7 +27,7 @@ export class ListScheduleComponent implements OnInit {
   async delete(id){
 
     if(confirm("Bạn có chắc chắn muốn xóa không")){
-      await this.listScheduleService.deleteSchedule(id).subscribe(res=>{
+      await this.scheduleService.deleteSchedule(id).subscribe(res=>{
         this.ngOnInit()
       }, error=>{
         alert(error.error.name)

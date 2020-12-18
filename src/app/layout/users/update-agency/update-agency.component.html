@@ -1,0 +1,20 @@
+<app-nhaxe>
+</app-nhaxe>
+
+<div class="register">
+    <h2 style="text-align: center;">Cập Nhật Thông Tin Nhà Xe</h2>
+
+    <div class="w3layoutscontaineragileits">
+
+        <form [formGroup]="updateAgencyForm" (ngSubmit)="onSubmit()">
+            <input type="text" formControlName="nameAgency" placeholder="Tên Nhà Xe" required="">
+            <input type="text" formControlName="phoneNumber" placeholder="Số Điện Thoại" required="">
+            <textarea name="" id="" cols="46" rows="4" formControlName="discription" placeholder="Mô Tả"></textarea>
+            <textarea name="" id="" cols="46" rows="4" formControlName="utilities" placeholder="Tiện Ích"></textarea>
+            <textarea name="" id="" cols="46" rows="4" formControlName="policy" placeholder="Chính Sách"></textarea>
+            <div class="aitssendbuttonw3ls">
+                <input type="submit" value="UPDATE">
+            </div>
+        </form>
+    </div>
+</div>

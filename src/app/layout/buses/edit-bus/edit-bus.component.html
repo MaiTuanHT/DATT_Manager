@@ -1,21 +1,25 @@
+<app-nhaxe>
+</app-nhaxe>
+
 <div>
     <h2 style="text-align: center;">Sửa Chuyến</h2>
     <form [formGroup]="editBusForm" (ngSubmit)="onSubmit()">
         <label for="username">Tuyến Đi: </label>
         <span>
-            <select name="" id="" formControlName="routeID">
-                <option *ngFor = "let route of list_route" value="{{route._id}}">{{route.startLocation}} - {{route.stopLocation}}</option>
+            <select name="" id="" formControlName="routeID" >
+              <option class="first" value="" disabled selected hidden>{{bus.routeID.startLocation}} - {{bus.routeID.stopLocation}}</option>
+              <option *ngFor = "let route of list_route" value="{{route._id}}">{{route.startLocation}} - {{route.stopLocation}}</option>
             </select>
       </span>
 
         <label for="email">Giờ Xuất Phát: </label>
         <span>
-        <input type="time" id="email" formControlName="departureTime" placeholder="H">
+        <input type="time" formControlName="departureTime"  [ngModel]="bus.departureTime">
       </span>
 
         <label for="pword">Số Chỗ: </label>
         <span>
-        <input type="number" id="pword" min="5" formControlName="seat" placeholder="Number">
+        <input type="number"  min="5" formControlName="seat" [ngModel]="bus.seat">
       </span>
 
         <div class="center">

@@ -11,6 +11,7 @@ import { VehicleService } from '../vehicle.service';
 export class EditVehicleComponent implements OnInit {
 
   id : any
+  vehicle: any
   editVehicleForm = new FormGroup({
     licensePlate : new FormControl(''),
     numberSeat : new FormControl(''),
@@ -19,13 +20,21 @@ export class EditVehicleComponent implements OnInit {
   constructor(private vehicleService: VehicleService, private router: Router,
     private activeRoute: ActivatedRoute) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.id = this.activeRoute.snapshot.paramMap.get('id');
+
+    await this.vehicleService.GetVehicle(this.id).subscribe(data=>{
+      this.vehicle = data
+    }, error=>{
+      alert(error.error.name)
+    })
+
   }
   
  async onSubmit(){
 
   console.log("vehicle id : " , this.id)
+
 
   await this.vehicleService.UpdateVehicle(this.editVehicleForm.value.licensePlate,
     this.editVehicleForm.value.numberSeat,this.id).subscribe(res=>{

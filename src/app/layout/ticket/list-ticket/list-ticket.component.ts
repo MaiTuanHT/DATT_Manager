@@ -12,7 +12,7 @@ export class ListTicketComponent implements OnInit {
 
   list_ticket: any
   id : any
-
+  page: number = 1;
   constructor(private activeRoute: ActivatedRoute , private ticketService : TicketService , private router: Router) { }
 
   async ngOnInit() {
@@ -35,6 +35,15 @@ export class ListTicketComponent implements OnInit {
         alert(error.error.name)
       })
     }
-    }
+  }
 
+  async approval(id){
+    if(confirm("Bạn có chắc chắn muốn duyệt vé này không")){
+      await this.ticketService.update(id).subscribe(res=>{
+        this.ngOnInit()
+      }, error=>{
+        alert(error.error.name)
+      })
+    }
+  }
 }

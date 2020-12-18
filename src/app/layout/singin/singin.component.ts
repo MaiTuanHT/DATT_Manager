@@ -16,7 +16,7 @@ export class SinginComponent implements OnInit {
     password: new FormControl('')
   })
 
-  isLoggedIn = false;
+  public isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
@@ -40,8 +40,6 @@ export class SinginComponent implements OnInit {
         res => {
           this.tokenStorage.saveToken(res.accessToken);
           console.log(res.accessToken);
-          // this.tokenStorage.saveToken(res.token);
-  
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           alert("Login thanh cong")
@@ -51,7 +49,6 @@ export class SinginComponent implements OnInit {
           this.errorMessage = error.error.message;
           alert(this.errorMessage)
           this.isLoginFailed = true;
-          // location.reload();
         }
       )
      }

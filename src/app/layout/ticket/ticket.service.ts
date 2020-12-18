@@ -32,4 +32,9 @@ export class TicketService {
     },httpOptions)
   }
 
+  public update(id){
+    return this.httpClient.put(`http://localhost:3000/tickets/${id}`,{
+    },httpOptions)
+  }
+
 }

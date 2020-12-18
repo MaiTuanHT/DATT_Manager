@@ -5,18 +5,22 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class EditRouteService {
+export class UpdateAgencyService {
+
   constructor(private httpClient : HttpClient) { }
 
-  public UpdateRoute(startLocation, stopLocation , id){
-    // console.log(fullName)
-    return this.httpClient.put(`http://localhost:3000/routes/${id}`,{
-      startLocation,
-      stopLocation,
+
+  public AgencyUpdate(nameAgency, phoneNumber , discription, policy,utilities){
+    return this.httpClient.put(`http://localhost:3000/agencys/update`,{
+      nameAgency,
+      phoneNumber,
+      discription,
+      policy,
+      utilities
     },httpOptions)
   }
+
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EditRouteService } from './edit-route.service';
+
+
+import {RouteService} from '../route.service'
 
 @Component({
   selector: 'app-edit-route',
@@ -15,17 +17,27 @@ export class EditRouteComponent implements OnInit {
     stopLocation : new FormControl(''),
   });
 
-  constructor(private editRouteService : EditRouteService , private router: Router , private activeRoute: ActivatedRoute ) { }
+  constructor(private routeService : RouteService , private router: Router , private activeRoute: ActivatedRoute ) { }
 
-  ngOnInit(): void {
+id: any
+
+route : any
+
+  async ngOnInit() {
+    this.id = this.activeRoute.snapshot.paramMap.get('id');
+    await this.routeService.getRoute(this.id).subscribe(data=>{
+      this.route = data
+    },error=>{
+      alert(error.error.name)
+    })
+
   }
 
  async onSubmit(){
 
-    const id = this.activeRoute.snapshot.paramMap.get('id');
-    await this.editRouteService.UpdateRoute(this.editRouteForm.value.startLocation , 
+    await this.routeService.UpdateRoute(this.editRouteForm.value.startLocation , 
       this.editRouteForm.value.stopLocation , 
-      id).subscribe(res=>{
+      this.id).subscribe(res=>{
       alert("Update Thành Công")
       this.router.navigateByUrl('//list-route');
     } , error=>{

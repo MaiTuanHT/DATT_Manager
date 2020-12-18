@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { from } from 'rxjs';
 
 
-import {ListRouteService} from './list-route.service'
+import {RouteService} from '../route.service'
 
 @Component({
   selector: 'app-list-route',
@@ -11,10 +12,10 @@ import {ListRouteService} from './list-route.service'
 })
 export class ListRouteComponent implements OnInit {
   list_route : any
-  constructor(private listRouteService : ListRouteService , private router: Router) { }
+  constructor(private routeService : RouteService , private router: Router) { }
 
   async ngOnInit() {
-    await this.listRouteService.GetListRoute().subscribe(data=>{
+    await this.routeService.GetListRoute().subscribe(data=>{
       this.list_route = data
       console.log(this.list_route)
     } , error =>{
@@ -28,7 +29,7 @@ export class ListRouteComponent implements OnInit {
   async delete(id){
 
     if(confirm("Bạn có chắc chắn muốn xóa không")){
-      await this.listRouteService.deleteRoute(id).subscribe(res=>{
+      await this.routeService.deleteRoute(id).subscribe(res=>{
         this.ngOnInit()
       }, error=>{
         alert(error.error.name)

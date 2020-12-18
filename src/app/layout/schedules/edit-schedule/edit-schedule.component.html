@@ -1,9 +1,15 @@
+<app-nhaxe>
+</app-nhaxe>
+
 <div>
     <h2 style="text-align: center;"> Sửa Lịch Trình</h2>
     <form [formGroup]="editScheduleForm" (ngSubmit)="onSubmit()">
         <label for="username">Chuyến Đi: </label>
         <span>
             <select name="" id="" formControlName="busID">
+
+                <option value="" disabled selected hidden>{{schedule.busID.departureTime}} - {{schedule.routeID.startLocation}} => {{schedule.routeID.stopLocation}}</option>
+
                 <option *ngFor = "let bus of list_bus" value="{{bus._id}}">{{bus.departureTime}} - {{bus.routeID.startLocation}} => {{bus.routeID.stopLocation}}</option>
             </select>
             
@@ -11,12 +17,13 @@
 
         <label for="pword">Giá Vé: </label>
         <span>
-            <input type="number" id="pword" min="10000" formControlName="price" placeholder="Number">
+            <input type="number" id="pword" min="10000" formControlName="price" [ngModel]="schedule.price">
         </span>
 
         <label for="email">Ngày Đi: </label>
         <span>
-        <input type="date" id="email" formControlName="date" placeholder="H">
+        <input type="text" id="email" formControlName="date" [ngModel]="schedule.date"
+        onfocus="(this.type='date')" onblur="(this.type='text')">
       </span>
 
         <label for="username">Xe Chạy: </label>

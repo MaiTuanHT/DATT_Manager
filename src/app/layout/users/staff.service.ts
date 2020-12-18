@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ListStaffService {
+export class StaffService {
 
   constructor(private httpClient : HttpClient) { }
 
@@ -16,4 +16,9 @@ export class ListStaffService {
     console.log("user id : " , id)
     return this.httpClient.delete(`http://localhost:3000/users/${id}`);
   }
+
+  public getStaff(id){
+    return this.httpClient.get(`http://localhost:3000/users/${id}`);
+  }
+
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ListRouteService } from '../../routes/list-route/list-route.service';
-import { AddBusService } from './add-bus.service';
+import { RouteService } from '../../routes/route.service';
+
+import { BusesService } from '../buses.service';
 
 @Component({
   selector: 'app-add-bus',
@@ -19,12 +20,12 @@ export class AddBusComponent implements OnInit {
     seat : new FormControl(''),
   });
 
-  constructor(private listRouteService : ListRouteService , 
-    private addBusService : AddBusService,
+  constructor(private routeService : RouteService , 
+    private busesService : BusesService,
     private router: Router) { }
 
   async ngOnInit() {
-    await this.listRouteService.GetListRoute().subscribe(data=>{
+    await this.routeService.GetListRoute().subscribe(data=>{
       this.list_route = data
       console.log(this.list_route)
     } , error =>{
@@ -44,7 +45,7 @@ export class AddBusComponent implements OnInit {
       alert("Xin vui lòng điền đầy đủ thông tin")
     }
     else{
-        await this.addBusService.Bus(this.addBusForm.value.routeID , this.addBusForm.value.departureTime, this.addBusForm.value.seat).subscribe(res=>{
+        await this.busesService.Bus(this.addBusForm.value.routeID , this.addBusForm.value.departureTime, this.addBusForm.value.seat).subscribe(res=>{
           alert("Thêm Chuyến Thành Công")
           this.router.navigateByUrl('//list-bus')
         } , error=>{

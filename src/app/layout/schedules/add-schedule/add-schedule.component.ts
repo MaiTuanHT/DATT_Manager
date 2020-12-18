@@ -3,9 +3,9 @@ import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ListBusService } from '../../buses/list-bus/list-bus.service';
+import { BusesService } from '../../buses/buses.service';
 import { VehicleService } from '../../vehicle/vehicle.service';
-import { AddScheduleService } from './add-schedule.service';
+import { ScheduleService } from '../schedule.service';
 
 @Component({
   selector: 'app-add-schedule',
@@ -24,13 +24,13 @@ export class AddScheduleComponent implements OnInit {
     vehicleID: new FormControl('')
   });
 
-  constructor(private addScheduleService : AddScheduleService ,
-     private listBusService: ListBusService,
+  constructor(private scheduleService : ScheduleService ,
+     private busesService: BusesService,
      private router: Router ,
      private vehicleService: VehicleService) { }
 
   async ngOnInit() {
-    await this.listBusService.GetListBus().subscribe(res=>{
+    await this.busesService.GetListBus().subscribe(res=>{
       this.list_bus = res
     } , error=>{
       alert(error.error.message)
@@ -55,7 +55,7 @@ export class AddScheduleComponent implements OnInit {
       alert("Xin vui lòng điền đầy đủ thông tin")
     }
     else{
-        await this.addScheduleService.Schedule(this.addScheduleForm.value.busID ,
+        await this.scheduleService.Schedule(this.addScheduleForm.value.busID ,
            this.addScheduleForm.value.date, 
            this.addScheduleForm.value.price,
            this.addScheduleForm.value.vehicleID).subscribe(res=>{

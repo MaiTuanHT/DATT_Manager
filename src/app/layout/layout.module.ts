@@ -24,6 +24,9 @@ import { ListVehicleComponent } from './vehicle/list-vehicle/list-vehicle.compon
 import { AddVehicleComponent } from './vehicle/add-vehicle/add-vehicle.component';
 import { EditVehicleComponent } from './vehicle/edit-vehicle/edit-vehicle.component';
 import { ListClientComponent } from './client/list-client/list-client.component';
+import { UpdateAgencyComponent } from './users/update-agency/update-agency.component';
+import { NgxPaginationModule} from 'ngx-pagination';
+import { NhaxeComponent } from './users/nhaxe/nhaxe.component';
 
 
 
@@ -34,12 +37,14 @@ import { ListClientComponent } from './client/list-client/list-client.component'
     EditRouteComponent, AddRouteComponent, ListRouteComponent, 
     AddBusComponent, ListBusComponent, EditBusComponent, SinginComponent,
     ListAgencyComponent, DetailAgencyComponent, ListTicketComponent, AddTicketComponent, 
-    ListVehicleComponent, AddVehicleComponent, EditVehicleComponent, ListClientComponent],
+    ListVehicleComponent, AddVehicleComponent, EditVehicleComponent, ListClientComponent, 
+    UpdateAgencyComponent, NhaxeComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxPaginationModule
   ]
 })
 export class LayoutModule { }

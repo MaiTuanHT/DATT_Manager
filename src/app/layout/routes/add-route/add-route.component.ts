@@ -2,7 +2,9 @@ import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import {AddRouteService} from './add-route.service'
+
+
+import {RouteService} from '../route.service'
 
 @Component({
   selector: 'app-add-route',
@@ -16,7 +18,7 @@ export class AddRouteComponent implements OnInit {
     stopLocation : new FormControl(''),
   });
 
-  constructor(private addRouteService : AddRouteService , private router: Router) { }
+  constructor(private routeService : RouteService , private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +29,7 @@ export class AddRouteComponent implements OnInit {
       alert("Xin vui lòng điền đầy đủ thông tin")
     }
     else{
-        await this.addRouteService.Route(this.addRouteForm.value.startLocation , this.addRouteForm.value.stopLocation).subscribe(res=>{
+        await this.routeService.Route(this.addRouteForm.value.startLocation , this.addRouteForm.value.stopLocation).subscribe(res=>{
           alert("Thêm Tuyến Thành Công")
           this.router.navigateByUrl('//list-route');
         } , error=>{

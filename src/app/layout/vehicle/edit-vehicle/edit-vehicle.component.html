@@ -1,15 +1,18 @@
+<app-nhaxe>
+</app-nhaxe>
+
 <div>
     <h2 style="text-align: center;">Sửa Xe</h2>
     <form [formGroup]="editVehicleForm" (ngSubmit)="onSubmit()">
 
         <label for="email">Biển Số Xe: </label>
         <span>
-        <input type="text" id="email" formControlName="licensePlate" placeholder="xxx">
+        <input type="text" id="email" formControlName="licensePlate" [ngModel]="vehicle.licensePlate">
       </span>
 
         <label for="pword">Số Chỗ: </label>
         <span>
-        <input type="number" id="pword" min="5" formControlName="numberSeat" placeholder="Number">
+        <input type="number" id="pword" min="5" formControlName="numberSeat" [ngModel]= "vehicle.numberSeat">
       </span>
 
         <div class="center">

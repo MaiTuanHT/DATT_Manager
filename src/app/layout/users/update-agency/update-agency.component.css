@@ -1,3 +1,11 @@
+.register {
+    width: 795px;
+}
+
+.aitssendbuttonw3ls {
+    width: 200px;
+}
+
 input[type=text],
 select {
     width: 100%;
@@ -9,19 +17,13 @@ select {
     box-sizing: border-box;
 }
 
-select:invalid {
-    color: gray;
+textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-select option:first-child {
-    color: gray;
-}
-
-select:invalid option:not(:first-child) {
-    color: black;
-}
-
-input[type=time],
+input[type=file],
 select {
     width: 100%;
     padding: 12px 20px;
@@ -30,6 +32,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: white;
 }
 
 input[type=number],

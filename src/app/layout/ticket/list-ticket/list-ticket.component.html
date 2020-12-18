@@ -1,3 +1,6 @@
+<app-nhaxe>
+</app-nhaxe>
+
 <div class="row">
     <div class="col-sm-12">
         <div class="white-box">
@@ -7,23 +10,36 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="border-top-0">Tuyến Đi</th>
-                            <th class="border-top-0">Thời Gian Khởi Hành</th>
-                            <th class="border-top-0">Người đặt vé</th>
-                            <th class="border-top-0">Số Điện Thoại</th>
+                            <th class="border-top-0" style="text-align: center;">STT Đặt</th>
+                            <th class="border-top-0" style="text-align: center;">Tuyến Đi</th>
+                            <th class="border-top-0" style="text-align: center;">Thời Gian Khởi Hành</th>
+                            <th class="border-top-0" style="text-align: center;">Người đặt vé</th>
+                            <th class="border-top-0" style="text-align: center;">Số Điện Thoại</th>
+                            <th class="border-top-0" style="text-align: center;">Ngày Đăng Ký</th>
+                            <th class="border-top-0" style="text-align: center;">Tình Trạng</th>
+                            <th class="border-top-0" style="text-align: center;">Phê Duyệt</th>
+
                             <th class="border-top-0">Xóa</th>
                         </tr>
                     </thead>
-                    <tbody *ngFor="let ticket of list_ticket">
+                    <tbody *ngFor="let ticket of list_ticket | paginate: { itemsPerPage: 5, currentPage: page }">
                         <tr>
+                            <td>{{ticket.orderNumber}}</td>
                             <td>{{ticket.scheduleID.routeID.startLocation}} - {{ticket.scheduleID.routeID.stopLocation}}</td>
                             <td>{{ticket.scheduleID.date}} - {{ticket.scheduleID.busID.departureTime}}</td>
                             <td>{{ticket.fullName}}</td>
                             <td>{{ticket.phone}}</td>
+                            <td>{{ticket.createdAt}}</td>
+                            <td *ngIf="ticket.status"> Đã Duyệt</td>
+                            <td *ngIf="!ticket.status">Chưa Duyệt</td>
+                            <td><button class="btn btn-success" (click)="approval(ticket._id)">Duyệt</button></td>
                             <td><button class="btn btn-danger" (click)="delete(ticket._id)">Xóa</button></td>
                         </tr>
                     </tbody>
                 </table>
+
+                <pagination-controls (pageChange)="page = $event" style="text-align: center; color: red; font-size: 17px;"></pagination-controls>
+
             </div>
         </div>
     </div>

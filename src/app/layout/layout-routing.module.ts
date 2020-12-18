@@ -22,6 +22,7 @@ import { ListVehicleComponent } from './vehicle/list-vehicle/list-vehicle.compon
 import { AddVehicleComponent } from './vehicle/add-vehicle/add-vehicle.component';
 import { EditVehicleComponent } from './vehicle/edit-vehicle/edit-vehicle.component';
 import { ListClientComponent } from './client/list-client/list-client.component';
+import { UpdateAgencyComponent } from './users/update-agency/update-agency.component';
 
 const routes: Routes = [{ path: '', component: LayoutComponent ,
 children:[
@@ -44,7 +45,7 @@ children:[
    { path:"list-vehicle", component:ListVehicleComponent},
    { path:"add-vehicle", component:AddVehicleComponent},
    { path:"edit-vehicle/:id", component:EditVehicleComponent},
-    
+   { path:"updateAgency", component:UpdateAgencyComponent},
 ]}];
 
 @NgModule({

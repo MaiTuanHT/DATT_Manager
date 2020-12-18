@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ListStaffService } from './list-staff.service';
+import { StaffService } from '../staff.service';
 
 @Component({
   selector: 'app-list-staff',
@@ -11,11 +11,11 @@ import { ListStaffService } from './list-staff.service';
 export class ListStaffComponent implements OnInit {
   list_staff : any ;
 
-  constructor(private listStaffService: ListStaffService ,
+  constructor(private staffService: StaffService ,
     private httpClient : HttpClient , private router: Router) { }
 
   async  ngOnInit() {
-    await this.listStaffService.GetListStaff().subscribe(data=>{
+    await this.staffService.GetListStaff().subscribe(data=>{
         this.list_staff = data ;
         console.log(data)
     } , error=>{
@@ -28,7 +28,7 @@ export class ListStaffComponent implements OnInit {
 async delete(id){
 
   if(confirm("Bạn có chắc chắn muốn xóa không")){
-    await this.listStaffService.deleteStaff(id).subscribe(res=>{
+    await this.staffService.deleteStaff(id).subscribe(res=>{
       this.ngOnInit()
     }, error=>{
       alert(error.error.name)

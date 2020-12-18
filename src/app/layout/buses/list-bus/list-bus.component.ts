@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ListBusService } from './list-bus.service';
+import { BusesService } from '../buses.service';
 
 @Component({
   selector: 'app-list-bus',
@@ -10,11 +10,12 @@ import { ListBusService } from './list-bus.service';
 export class ListBusComponent implements OnInit {
 
   list_bus: any
+  page: number = 1;
 
-  constructor(private listBusService : ListBusService , private router: Router) { }
+  constructor(private busesService : BusesService , private router: Router) { }
 
   async ngOnInit() {
-    await this.listBusService.GetListBus().subscribe(data=>{
+    await this.busesService.GetListBus().subscribe(data=>{
       this.list_bus = data
       console.log(this.list_bus)
     } , error =>{
@@ -28,7 +29,7 @@ export class ListBusComponent implements OnInit {
   async delete(id){
 
     if(confirm("Bạn có chắc chắn muốn xóa không")){
-      await this.listBusService.deleteBus(id).subscribe(res=>{
+      await this.busesService.deleteBus(id).subscribe(res=>{
         this.ngOnInit()
       }, error=>{
         alert(error.error.name)
