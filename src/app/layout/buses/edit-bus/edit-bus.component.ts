@@ -52,9 +52,8 @@ export class EditBusComponent implements OnInit {
       this.id).subscribe(data=>{
         alert("Update thanh cong")
         this.router.navigateByUrl("//list-bus")
-      }),
-      error=>{
+      },error=>{
         alert(error.error.name)
-      }
+      })
   }
 }

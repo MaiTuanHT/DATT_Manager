@@ -37,7 +37,6 @@ export class EditScheduleComponent implements OnInit {
     await this.scheduleService.getSchedule(this.id).subscribe(data=>{
       this.schedule = data
     }, error=>{
-      // alert("Loi day ne")
       alert(error.error.name)
     })
     await this.busesService.GetListBus().subscribe(res=>{
@@ -55,16 +54,32 @@ export class EditScheduleComponent implements OnInit {
   }
 
   async onSubmit(){
-    await this.scheduleService.updateSchedule(this.editScheduleForm.value.busID , 
-      this.editScheduleForm.value.date, 
-      this.editScheduleForm.value.price,
-      this.editScheduleForm.value.vehicleID,
-      this.id).subscribe(res=>{
-      alert("Update Thành Công")
-      this.router.navigateByUrl('//list-schedule');
-    } , error=>{
-         alert(error.error.name)
-    })
+
+
+    // if(this.editScheduleForm.value.busID == " "){
+    //   console.log("value busID : ", this.editScheduleForm.value.busID + "abc")
+    // }
+
+    console.log("value1 : ", this.editScheduleForm.value.busID == "")
+    console.log("value2 : ", this.editScheduleForm.value.price)
+
+    if(((this.editScheduleForm.value.busID && this.editScheduleForm.value.busID != "")||
+      (this.editScheduleForm.value.price && this.editScheduleForm.value.price != this.schedule.price)||
+      (this.editScheduleForm.value.date && this.editScheduleForm.value.date != this.schedule.date))  && this.schedule.booked > 0){
+      alert("Lịch trình này đã có người đặt vé. Bạn không thể sửa !!")
+    }
+    else{
+      await this.scheduleService.updateSchedule(this.editScheduleForm.value.busID , 
+        this.editScheduleForm.value.date, 
+        this.editScheduleForm.value.price,
+        this.editScheduleForm.value.vehicleID,
+        this.id).subscribe(res=>{
+        alert("Update Thành Công")
+        this.router.navigateByUrl('//list-schedule');
+      } , error=>{
+           alert(error.error.name)
+      })
+    }
   }
 
 }

@@ -8,7 +8,7 @@
         <span>
             <select name="" id="" formControlName="busID">
 
-                <option value="" disabled selected hidden>{{schedule.busID.departureTime}} - {{schedule.routeID.startLocation}} => {{schedule.routeID.stopLocation}}</option>
+                <option value="" disabled selected hidden *ngIf="schedule">{{schedule.busID.departureTime}} - {{schedule.routeID.startLocation}} => {{schedule.routeID.stopLocation}}</option>
 
                 <option *ngFor = "let bus of list_bus" value="{{bus._id}}">{{bus.departureTime}} - {{bus.routeID.startLocation}} => {{bus.routeID.stopLocation}}</option>
             </select>
@@ -17,12 +17,12 @@
 
         <label for="pword">Giá Vé: </label>
         <span>
-            <input type="number" id="pword" min="10000" formControlName="price" [ngModel]="schedule.price">
+            <input type="number" id="pword" min="10000" formControlName="price" *ngIf="schedule" [ngModel]="schedule.price">
         </span>
 
         <label for="email">Ngày Đi: </label>
         <span>
-        <input type="text" id="email" formControlName="date" [ngModel]="schedule.date"
+        <input type="text" id="email" formControlName="date" *ngIf="schedule" [ngModel]="schedule.date"
         onfocus="(this.type='date')" onblur="(this.type='text')">
       </span>
 

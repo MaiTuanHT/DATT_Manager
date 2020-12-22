@@ -7,11 +7,31 @@
     <div class="w3layoutscontaineragileits">
 
         <form [formGroup]="updateAgencyForm" (ngSubmit)="onSubmit()">
-            <input type="text" formControlName="nameAgency" placeholder="Tên Nhà Xe" required="">
-            <input type="text" formControlName="phoneNumber" placeholder="Số Điện Thoại" required="">
-            <textarea name="" id="" cols="46" rows="4" formControlName="discription" placeholder="Mô Tả"></textarea>
-            <textarea name="" id="" cols="46" rows="4" formControlName="utilities" placeholder="Tiện Ích"></textarea>
-            <textarea name="" id="" cols="46" rows="4" formControlName="policy" placeholder="Chính Sách"></textarea>
+            <label for="">Tên Nhà Xe</label>
+            <span>
+                <input type="text" formControlName="nameAgency" placeholder="Tên Nhà Xe" *ngIf="agency" [ngModel]="agency.nameAgency">
+            </span>
+
+            <label for="">Số Điện Thoại</label>
+            <span>
+                <input type="text" formControlName="phoneNumber" placeholder="Số Điện Thoại" *ngIf="agency" [ngModel]="agency.phoneNumber">
+            </span>
+
+            <label for="">Thời Hạn Nộp Vé</label>
+            <span><input type="number" min="12" formControlName="ticketPaymentDealine" placeholder="Thời Hạn Nộp Vé" *ngIf="agency && agency.ticketPaymentDealine" [ngModel]="agency.ticketPaymentDealine"></span>
+
+
+            <!-- <input type="file" accept=".jpg, .png, .JPG, .PNG" placeholder="Ảnh Nhà Xe" required="" (change)="fileProgress($event)"> -->
+            <label for="">Mô Tả</label>
+            <span> <textarea name="" id="" cols="46" rows="4" formControlName="discription" placeholder="Mô Tả" *ngIf="agency && agency.discription" [ngModel]="agency.discription"></textarea></span>
+            <label for="">Chính Sách</label>
+            <span> <textarea name="" id="" cols="46" rows="4" formControlName="policy" placeholder="Chính Sách" *ngIf="agency && agency.policy" [ngModel]="agency.policy"></textarea></span>
+
+            <label for="">Tiện Ích</label>
+            <span><textarea name="" id="" cols="46" rows="4" formControlName="utilities" placeholder="Tiện Ích" *ngIf="agency && agency.utilities" [ngModel]="agency.utilities"></textarea></span>
+
+
+
             <div class="aitssendbuttonw3ls">
                 <input type="submit" value="UPDATE">
             </div>

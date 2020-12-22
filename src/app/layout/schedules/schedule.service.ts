@@ -12,8 +12,12 @@ export class ScheduleService {
 
   constructor(private httpClient : HttpClient) { }
 
-  public getSchedule(id){
+   public getSchedule(id){
     return this.httpClient.get(`http://localhost:3000/schedules/schedule/${id}`)
+  }
+
+  public getScheduleOfRoute(id){
+    return this.httpClient.get(`http://localhost:3000/schedules/scheduleOfRoute/${id}`)
   }
 
   public updateSchedule(busID, date, price,vehicleID, id){

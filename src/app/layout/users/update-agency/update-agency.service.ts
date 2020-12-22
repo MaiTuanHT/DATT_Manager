@@ -12,15 +12,33 @@ export class UpdateAgencyService {
 
   constructor(private httpClient : HttpClient) { }
 
+  public getAgency(){
+    return this.httpClient.get('http://localhost:3000/agencys/agency')
+  }
 
-  public AgencyUpdate(nameAgency, phoneNumber , discription, policy,utilities){
+
+  public AgencyUpdate(nameAgency, phoneNumber , discription, policy,utilities, ticketPaymentDealine){
     return this.httpClient.put(`http://localhost:3000/agencys/update`,{
       nameAgency,
       phoneNumber,
       discription,
       policy,
-      utilities
+      utilities,
+      ticketPaymentDealine
     },httpOptions)
+  }
+
+  public Ticket(formData){
+
+    console.log("form data : ", formData)
+   
+    return this.httpClient.post('http://localhost:3000/images',
+     formData,{
+      headers:{
+        enctype: 'multipart/form-data'
+      }
+     },
+    )
   }
 
 }

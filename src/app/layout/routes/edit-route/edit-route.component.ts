@@ -34,15 +34,17 @@ route : any
   }
 
  async onSubmit(){
-
-    await this.routeService.UpdateRoute(this.editRouteForm.value.startLocation , 
-      this.editRouteForm.value.stopLocation , 
+   if(!this.editRouteForm.value.startLocation || !this.editRouteForm.value.stopLocation){
+      alert("Vui Lòng chọn đầy đủ thông tin")
+   }else{
+    await this.routeService.UpdateRoute(this.editRouteForm.value.startLocation, 
+      this.editRouteForm.value.stopLocation, 
       this.id).subscribe(res=>{
       alert("Update Thành Công")
       this.router.navigateByUrl('//list-route');
     } , error=>{
-         alert(error.error.message)
+         alert(error.error.name)
     })
+   }
   }
-
 }

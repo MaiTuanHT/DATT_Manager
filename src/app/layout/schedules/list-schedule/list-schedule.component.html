@@ -27,7 +27,7 @@
                     <tbody *ngFor="let schedule of list_schedule">
                         <tr>
                             <!-- <td>1</td> -->
-                            <td>{{schedule.routeID.startLocation}} - {{schedule.routeID.stopLocation}}</td>
+                            <td>{{schedule.busID.routeID.startLocation}} - {{schedule.busID.routeID.stopLocation}}</td>
                             <td>{{schedule.busID.seat}}</td>
                             <td>{{schedule.booked}}</td>
                             <td>{{schedule.price}}</td>

@@ -33,7 +33,8 @@
                             <td *ngIf="ticket.status"> Đã Duyệt</td>
                             <td *ngIf="!ticket.status">Chưa Duyệt</td>
                             <td><button class="btn btn-success" (click)="approval(ticket._id)">Duyệt</button></td>
-                            <td><button class="btn btn-danger" (click)="delete(ticket._id)">Xóa</button></td>
+                            <td *ngIf="!ticket.status"><button class="btn btn-danger" (click)="delete(ticket._id)">Xóa</button></td>
+                            <td *ngIf="ticket.status"></td>
                         </tr>
                     </tbody>
                 </table>
